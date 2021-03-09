@@ -36,7 +36,7 @@
                 </div>
                 <div class="row">
                     @foreach($books as $item)
-                        <div class="col-md-4">
+                        <div class="col-md-4 my-2">
                             <div class="card card-book" style="background: url({{$item->img}}),no-repeat, fixed, center;background-size: cover">
                                 <div class="ribbon-wrapper my-2">
                                     <div class="glow">&nbsp;</div>
