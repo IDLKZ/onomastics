@@ -1,0 +1,60 @@
+
+/*RESPONSIVE MEDIA*/
+@media screen and (max-width: 400px ) {
+    .carousel-h1{
+        font-size: 24px!important;
+    }
+    .main-title{
+        font-size: 18px;
+    }
+    .main-subtitle{
+        font-size: 14px;
+    }
+}
+@media (min-width: 400px) and (max-width: 550px ) {
+    .carousel-h1{
+        font-size: 26px!important;
+    }
+    .main-title{
+        font-size: 20px;
+    }
+    .main-subtitle{
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 550px) and (max-width: 650px ) {
+    .carousel-h1{
+        font-size: 28px!important;
+    }
+    .main-title{
+        font-size: 24px;
+    }
+    .main-subtitle{
+        font-size: 16px;
+    }
+}
+@media (min-width: 650px) and (max-width: 900px ) {
+    .carousel-h1{
+        font-size: 30px!important;
+    }
+    .main-title{
+        font-size: 26px;
+    }
+    .main-subtitle{
+        font-size: 16px;
+    }
+}
+@media screen and (min-width: 900px ) {
+        .md-w-80{
+            width: 80%!important;
+        }
+        .main-title{
+        font-size: 30px;
+        }
+        .main-subtitle{
+        font-size: 18px;
+        }
+}
+
+/*Common*/

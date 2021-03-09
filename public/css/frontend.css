@@ -1,0 +1,276 @@
+body{
+    font-family: 'Exo 2', sans-serif;
+}
+.my-navbar{
+    min-height: 92px;
+}
+.nav-bar-container{
+    height: auto;
+    width: 100%;
+    color: white;
+    z-index: 1000000;
+    position: fixed!important;
+}
+.top-nav{
+    color: white;
+}
+.onscroll-nav{
+    box-shadow: rgb(195, 195, 195) 5px 0px 15px;
+    background: white;
+}
+
+.bg-my-white{
+    background: white;
+}
+.fs-12{
+    font-size:12px;
+}
+.fs-14{
+    font-size:14px;
+}
+.fs-16{
+    font-size: 16px;
+}
+.fs-18{
+    font-size: 18px;
+}
+.fs-20{
+    font-size: 20px;
+}
+.nav-link.active{
+    border-bottom: 2px solid #3bd16f;
+}
+.carousel-section{
+    height: 100vh;
+}
+.swiper-bg{
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.card-round{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: #3bd16f;
+    color:white;
+    display: flex!important;
+    justify-content: center!important;
+    align-content: center!important;
+    align-items: center!important;
+    font-size: 62px;
+}
+.card-offer{
+    min-height: 320px;
+}
+.about-us{
+    box-shadow: 20px 10px;
+    background: #004b55;
+}
+.card-news{
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+}
+.card-news > img{
+    height: 290px;
+}
+.card-book{
+    height: 400px;
+    box-shadow: 10px 5px;
+}
+
+.footer-section{
+    background: #004b55;
+}
+
+
+/*Fourth Section*/
+
+.ribbon-wrapper {
+    position: relative;z-index:998;
+}
+.ribbon-front {
+    background-color: #cc3333;	height: auto;
+    width: 240px;
+    position: relative;
+    left:-10px;
+    z-index: 2; font:20px/50px bold Verdana, Geneva, sans-serif; color:#f8f8f8; text-align:center;text-shadow: 0px 1px 2px #cc6666;
+}
+
+.ribbon-front,
+.ribbon-back-left,
+.ribbon-back-right
+{
+    -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+    -khtml-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+    -o-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+}
+
+.ribbon-edge-topleft,
+.ribbon-edge-topright,
+.ribbon-edge-bottomleft,
+.ribbon-edge-bottomright {
+    position: absolute;
+    z-index: 1;
+    border-style:solid;
+    height:0px;
+    width:0px;
+}
+
+.ribbon-edge-topleft,
+.ribbon-edge-topright {
+}
+
+.ribbon-edge-bottomleft,
+.ribbon-edge-bottomright {
+    top: 50px;
+}
+
+.ribbon-edge-topleft,
+.ribbon-edge-bottomleft {
+    left: -10px;
+    border-color: transparent #9B1724 transparent transparent;
+}
+
+.ribbon-edge-topleft {
+    top: -5px;
+    border-width: 5px 10px 0 0;
+}
+.ribbon-edge-bottomleft {
+    border-width: 0 10px 0px 0;
+}
+
+.ribbon-edge-topright,
+.ribbon-edge-bottomright {
+    left: 220px;
+    border-color: transparent transparent transparent #9B1724;
+}
+
+.ribbon-edge-topright {
+    top: 0px;
+    border-width: 0px 0 0 10px;
+}
+.ribbon-edge-bottomright {
+    border-width: 0 0 5px 10px;
+}
+
+
+@-webkit-keyframes flow {
+    0% { left:-20px;opacity: 0;}
+    50% {left:100px;opacity: 0.3;}
+    100%{ left:180px;opacity: 0;}
+}
+@keyframes flow {
+    0% { left:-20px;opacity: 0;}
+    50% {left:100px;opacity: 0.3;}
+    100%{ left:180px;opacity: 0;}
+}
+
+.glow{ background: rgb(255,255,255); width:40px; height:100%; z-index:999; position:absolute;-webkit-animation: flow 1.5s linear infinite;-moz-animation: flow 1.5s linear infinite;-webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    -o-transform: skew(20deg);background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 1%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(1%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 100%); /* IE10+ */
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */ border-left:1px solid #fff;}
+/*Profile Card 3*/
+.profile-card-3 {
+    font-family: 'Open Sans', Arial, sans-serif;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    height:368px;
+    border:none;
+}
+.profile-card-3 .background-block {
+    float: left;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+.profile-card-3 .background-block .background {
+    width:100%;
+    vertical-align: top;
+    opacity: 0.9;
+    -webkit-filter: blur(0.5px);
+    filter: blur(0.5px);
+    -webkit-transform: scale(1.8);
+    transform: scale(2.8);
+}
+.profile-card-3 .card-content {
+    width: 100%;
+    padding: 15px 25px;
+    color:#232323;
+    float:left;
+    background:#efefef;
+    height:50%;
+    border-radius:0 0 5px 5px;
+    position: relative;
+    z-index: 9999;
+}
+.profile-card-3 .card-content::before {
+    content: '';
+    background: #efefef;
+    width: 120%;
+    height: 100%;
+    left: 11px;
+    bottom: 51px;
+    position: absolute;
+    z-index: -1;
+    transform: rotate(-13deg);
+}
+.profile-card-3 .profile {
+    border-radius: 50%;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    max-width: 100px;
+    opacity: 1;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 1);
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+    z-index:99999;
+}
+.profile-card-3 h2 {
+    margin: 0 0 5px;
+    font-weight: 600;
+    font-size:25px;
+}
+.profile-card-3 h2 small {
+    display: block;
+    font-size: 15px;
+    margin-top:10px;
+}
+.profile-card-3 i {
+    display: inline-block;
+    font-size: 16px;
+    color: #232323;
+    text-align: center;
+    border: 1px solid #232323;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    margin:0 5px;
+}
+.profile-card-3 .icon-block{
+    float:left;
+    width:100%;
+    margin-top:15px;
+}
+.profile-card-3 .icon-block a{
+    text-decoration:none;
+}
+.profile-card-3 i:hover {
+    background-color:#232323;
+    color:#fff;
+    text-decoration:none;
+}
