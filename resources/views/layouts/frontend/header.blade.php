@@ -23,12 +23,6 @@
                 <a class="{{ request()->routeIs('book') ? 'nav-link active' : 'nav-link' }} fs-14" href={{route("book")}}>{{__("frontend.books")}}</a>
             </li>
             <li class="nav-item ml-2">
-                <a class="{{ request()->routeIs('dictionary') ? 'nav-link active' : 'nav-link' }} fs-14" href="{{route("dictionary")}}">{{__("frontend.dictionary")}}</a>
-            </li>
-            <li class="nav-item ml-2">
-                <a class="{{ request()->routeIs('author') ? 'nav-link active' : 'nav-link' }} fs-14" href="{{route("author")}}">{{__("frontend.authors")}}</a>
-            </li>
-            <li class="nav-item ml-2">
                 <a class="{{ request()->routeIs('gallery') ? 'nav-link active' : 'nav-link' }} fs-14" href="{{route("gallery")}}">{{__("frontend.galleries")}}</a>
             </li>
             <li class="nav-item ml-2">

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property integer $author_id
+ * @property string $author_id
  * @property integer $language_id
  * @property string $alias
  * @property string $title
@@ -51,10 +51,10 @@ class Book extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function author()
-    {
-        return $this->belongsTo('App\Author');
-    }
+//    public function author()
+//    {
+//        return $this->belongsTo('App\Author');
+//    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

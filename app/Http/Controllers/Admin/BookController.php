@@ -19,7 +19,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::orderBy("created_at","DESC")->with(["author","language"])->paginate(12);
+        $books = Book::orderBy("created_at","DESC")->with(["language"])->paginate(12);
         return view("admin.book.index",compact("books"));
     }
 
@@ -30,10 +30,9 @@ class BookController extends Controller
      */
     public function create()
     {
-        $validator = JsValidator::make(["author_id" => "required|exists:authors,id","language_id" => "required|exists:languages,id", "title" => "required|max:255", "description" => "required", "img" => "sometimes|nullable|file|image|max:10240","file"=>"required|file|max:100000"]);
+        $validator = JsValidator::make(["author_id" => "required|max:500","language_id" => "required|exists:languages,id", "title" => "required|max:255", "description" => "required", "img" => "sometimes|nullable|file|image|max:10240","file"=>"required|file|max:100000"]);
         $languages = Language::all();
-        $authors = Author::all();
-        return view("admin.book.create",compact("validator","languages","authors"));
+        return view("admin.book.create",compact("validator","languages"));
     }
 
     /**
@@ -44,7 +43,7 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,["author_id" => "required|exists:authors,id","language_id" => "required|exists:languages,id", "title" => "required|max:255", "description" => "required", "img" => "sometimes|nullable|file|image|max:10240","file"=>"required|file|max:100000"]);
+        $this->validate($request,["author_id" => "required|max:500","language_id" => "required|exists:languages,id", "title" => "required|max:255", "description" => "required", "img" => "sometimes|nullable|file|image|max:10240","file"=>"required|file|max:100000"]);
         if(Book::createData($request)){
             toastr()->success(__("messages.created"));
         }
@@ -62,7 +61,7 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        if($book = Book::with(["author","language"])->find($id)){
+        if($book = Book::with(["language"])->find($id)){
             return view("admin.book.show",compact("book"));
         }
         else{
@@ -79,11 +78,10 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        if($book = Book::with(["author","language"])->find($id)){
-            $validator = JsValidator::make(["author_id" => "required","language_id" => "required", "title" => "required|max:255", "description" => "required", "img" => "sometimes|nullable|file|image|max:10240","file"=>"sometimes|nullable|file|max:100000"]);
+        if($book = Book::with(["language"])->find($id)){
+            $validator = JsValidator::make(["author_id" => "required|max:500","language_id" => "required", "title" => "required|max:255", "description" => "required", "img" => "sometimes|nullable|file|image|max:10240","file"=>"sometimes|nullable|file|max:100000"]);
             $languages = Language::all();
-            $authors = Author::all();
-            return view("admin.book.edit",compact("validator","languages","authors","book"));
+            return view("admin.book.edit",compact("validator","languages","book"));
         }
         else{
             toastr()->error(__("messages.404"));
@@ -100,8 +98,8 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($book = Book::with(["author","language"])->find($id)){
-            $this->validate($request,["author_id" => "required|exists:authors,id","language_id" => "required|exists:languages,id", "title" => "required|max:255", "description" => "required", "img" => "sometimes|nullable|file|image|max:10240","file"=>"sometimes|nullable|file|max:100000"]);
+        if($book = Book::with(["language"])->find($id)){
+            $this->validate($request,["author_id" => "required|max:500","language_id" => "required|exists:languages,id", "title" => "required|max:255", "description" => "required", "img" => "sometimes|nullable|file|image|max:10240","file"=>"sometimes|nullable|file|max:100000"]);
             if(Book::updateData($request,$book)){
                 toastr()->success(__("messages.updated"));
             }
@@ -123,7 +121,7 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        if($book = Book::with(["author","language"])->find($id)){
+        if($book = Book::with(["language"])->find($id)){
            File::deleteFile($book->img);
            File::deleteFile($book->file);
            $book->delete();

@@ -14,6 +14,11 @@ use App\Http\Controllers\Admin\MaterialController as AdminMaterialController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\PartnerController as AdminPartnerController;
 use App\Http\Controllers\Admin\TeamController as AdminTeamController;
+use App\Http\Controllers\Admin\SliderController as AdminSliderController;
+use App\Http\Controllers\Admin\AboutController as AdminAboutController;
+use App\Http\Controllers\Admin\AdvantageController as AdminAdvantageController;
+use App\Http\Controllers\Admin\EmailController as AdminEmailController;
+use App\Http\Controllers\Admin\FooterController as AdminFooterController;
 use \App\Http\Controllers\FrontendController;
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +53,8 @@ Route::group(
         Route::get("/author-book/{id}",[FrontendController::class,"authorBook"])->name("authorBook");
         Route::get("/gallery",[FrontendController::class,"gallery"])->name("gallery");
         Route::get("/contact",[FrontendController::class,"contact"])->name("contact");
-
+        Route::get("/search",[FrontendController::class,"search"])->name("search");
+        Route::post("/send-message",[FrontendController::class,"sendMessage"])->name("send-message");
 
         Route::group(["middleware"=>"guest"],function (){
            Route::get("/login",[AuthController::class,"login"])->name("login");
@@ -75,7 +81,12 @@ Route::group(
            Route::resource("admin-author",AdminAuthorController::class);
            Route::resource("admin-book",AdminBookController::class);
            Route::resource("admin-material",AdminMaterialController::class);
-
+           Route::resource("admin-slider",AdminSliderController::class);
+           Route::resource("admin-about",AdminAboutController::class);
+           Route::resource("admin-about",AdminAboutController::class);
+           Route::resource("admin-advantage",AdminAdvantageController::class);
+           Route::resource("admin-email",AdminEmailController::class);
+           Route::resource("admin-footer",AdminFooterController::class);
         });
 
 

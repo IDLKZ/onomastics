@@ -42,7 +42,7 @@
                         @csrf
                         <div class="form-group bmd-form-group">
                             <label for="title" class="bmd-label-floating">{{__("validation.attributes.title")}}</label>
-                            <input type="text" class="form-control" id="title" name="title">
+                            <input type="text" class="form-control" id="title" name="title" value="{{old("title")}}">
                         </div>
 
 

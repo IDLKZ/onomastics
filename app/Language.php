@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /**
  * @property integer $id
@@ -19,7 +20,7 @@ class Language extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -59,5 +60,15 @@ class Language extends Model
     public function news()
     {
         return $this->hasMany('App\News');
+    }
+
+    public static function getLanguage(){
+        $language = Language::where("locale",LaravelLocalization::getCurrentLocale())->first();
+        if ($language){
+            return $language->id;
+        }
+        else{
+            return 1;
+        }
     }
 }

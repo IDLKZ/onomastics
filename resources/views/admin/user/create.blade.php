@@ -35,19 +35,19 @@
                     <div class="card-body ">
                         <div class="form-group bmd-form-group">
                             <label for="exampleTitle" class="bmd-label-floating">{{__("validation.attributes.name")}}</label>
-                            <input type="text" name="name" class="form-control" id="exampleTitle">
+                            <input type="text" name="name" class="form-control" id="exampleTitle" value="{{old("name")}}">
                         </div>
                     </div>
                     <div class="card-body ">
                         <div class="form-group bmd-form-group">
                             <label for="exampleTitle" class="bmd-label-floating">{{__("validation.attributes.email")}}</label>
-                            <input type="email" name="email" class="form-control" id="exampleTitle">
+                            <input type="email" name="email" class="form-control" id="exampleTitle" value="{{old("email")}}">
                         </div>
                     </div>
                     <div class="card-body ">
                         <div class="form-group bmd-form-group">
                             <label for="exampleTitle" class="bmd-label-floating">{{__("validation.attributes.phone")}}</label>
-                            <input type="text" name="phone" class="form-control" id="phone">
+                            <input type="text" name="phone" class="form-control" id="phone" value="{{old("phone")}}">
                         </div>
                     </div>
                     <div class="card-body ">

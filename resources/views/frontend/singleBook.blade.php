@@ -29,7 +29,7 @@
         <div class="container">
             <div class="row py-4 my-4">
                 <div class="col-md-12 py-4">
-                    <h2>{{$book->author->name}} - {{$book->title}}</h2>
+                    <h2>{{$book->author_id}} - {{$book->title}}</h2>
                 </div>
                 <div class="col-md-4">
                     <img src="{{$book->img}}" style="width: 100%">

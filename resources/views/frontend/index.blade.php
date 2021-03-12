@@ -12,6 +12,64 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
+            @if($data["slider"]->isNotEmpty())
+                @foreach($data["slider"] as $slider)
+                <div class="swiper-slide swiper-bg" style="background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5) ), url({{$slider->img}});">
+                    <div class="text-white d-flex justify-content-center align-content-center align-items-center vh-100 text-center px-5">
+                        <div>
+                            <h1 class="ml11 font-weight-bold carousel-h1">
+                      <span class="text-wrapper">
+                        <span class="line line1"></span>
+                        <span class="letters">{{$slider->title}}</span>
+                      </span>
+                            </h1>
+                            @if($loop->iteration == 1)
+                            <div class="px-md-5 px-sm-2 py-2">
+                                @if($errors->any())
+                                    @foreach($errors->all() as $error)
+                                        <div class="alert alert-rose">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                            <span>
+                                    {{$error}}
+                                </span>
+                                        </div>
+
+                                    @endforeach
+                                @endif
+                                <form action="{{route("search")}}">
+                                    @csrf
+                                    <div class="input-group d-flex justify-content-center align-items-center">
+                                        <div class="form-outline md-w-20">
+                                            <select class="form-control" id="category" name="category">
+                                                <option value="article">{{__("frontend.articles")}}</option>
+                                                <option value="news">{{__("frontend.news")}}</option>
+                                                <option value="book">{{__("frontend.books")}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-outline md-w-70">
+                                            <input type="search" placeholder="{{__("frontend.search")}}" id="form1" class="form-control" name="search" />
+                                        </div>
+                                        <div class="md-w-10">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </form>
+
+                            </div>
+                            @endif
+                        </div>
+
+                    </div>
+                </div>
+                @endforeach
+
+
+            @else
             <div class="swiper-slide swiper-bg" style="background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5) ), url('/img/bg1.jpg');">
                 <div class="text-white d-flex justify-content-center align-content-center align-items-center vh-100 text-center px-5">
                     <div>
@@ -83,8 +141,8 @@
 
                     </div>
             </div>
+                @endif
 
-            ...
         </div>
         <!-- If we need pagination -->
         <div class="swiper-pagination"></div>
@@ -108,6 +166,26 @@
                 <p class="main-subtitle">{{__("frontend.offer_subtitle")}}</p>
             </div>
 
+
+            @if($data["advantage"]->isNotEmpty())
+                @foreach($data["advantage"] as $advantage)
+                <div class="col-md-4 my-2">
+                    <div class="card py-2 card-offer" data-aos="zoom-out" data-aos-duration="2000">
+                        <div class="text-center">
+                            <div class="d-flex justify-content-center">
+                                <div class="card-round">
+                                    <img src="{{$advantage->img}}" width="96px" height="96px">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text fs-16">{{$advantage->title}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+
+            @else
             <div class="col-md-4 my-2">
                 <div class="card py-2 card-offer" data-aos="zoom-in-right" data-aos-duration="2000">
                     <div class="text-center">
@@ -195,6 +273,7 @@
                 </div>
                 </div>
             </div>
+             @endif
 
         </div>
     </div>
@@ -212,7 +291,14 @@
             </div>
             <div class="row">
                 <div class="col-md-8 px-5 d-flex justify-content-center align-items-center">
+                    @if($data["about"])
+                        <div class="text-white">
+                            <div class="py-2">
+                                {!! $data["about"]->content !!}
+                            </div>
 
+                        </div>
+                    @else
                     <div class="text-white">
                         <div class="py-2">
                             <h3 class="main-title">{{__("frontend.about_us_title")}}</h3>
@@ -221,6 +307,7 @@
                             {{__("frontend.about_us_subtitle")}}
                         </p>
                     </div>
+                    @endif
 
                 </div>
                 <div class="col-md-4">
@@ -364,8 +451,8 @@
                                 <div class="ribbon-wrapper my-2">
                                     <div class="glow">&nbsp;</div>
                                     <div class="ribbon-front">
-                                        <a href="{{route("authorBook",$item->author_id)}}" class="text-white">
-                                            {{$item->author->name}}
+                                        <a href="" class="text-white">
+                                            {{$item->author_id}}
                                         </a>
                                     </div>
                                     <div class="ribbon-edge-topleft"></div>
@@ -534,75 +621,76 @@
                 },
             }
         });
-        // Wrap every letter in a span
-        var textWrapper = document.querySelector('.ml11 .letters');
-        textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
-
-        anime.timeline({loop: true})
-            .add({
-                targets: '.ml11 .line',
-                scaleY: [0,1],
-                opacity: [0.5,1],
-                easing: "easeOutExpo",
-                duration: 700
-            })
-            .add({
-                targets: '.ml11 .line',
-                translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
-                easing: "easeOutExpo",
-                duration: 700,
-                delay: 100
-            }).add({
-            targets: '.ml11 .letter',
-            opacity: [0,1],
-            easing: "easeOutExpo",
-            duration: 600,
-            offset: '-=775',
-            delay: (el, i) => 34 * (i+1)
-        }).add({
-            targets: '.ml11',
-            opacity: 0,
-            duration: 1000,
-            easing: "easeOutExpo",
-            delay: 1000
-        });
-
-        var textWrapper2 = document.querySelector('.ml3');
-        textWrapper2.innerHTML = textWrapper2.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-        anime.timeline({loop: true})
-            .add({
-                targets: '.ml3 .letter',
-                opacity: [0,1],
-                easing: "easeInOutQuad",
-                duration: 600,
-                delay: (el, i) => 150 * (i+1)
-            }).add({
-            targets: '.ml3',
-            opacity: 0,
-            duration: 800,
-            easing: "easeOutExpo",
-            delay: 800
-        });
-
-        // Wrap every letter in a span
-        var textWrapper3 = document.querySelector('.ml6 .letters');
-        textWrapper3.innerHTML = textWrapper3.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-        anime.timeline({loop: true})
-            .add({
-                targets: '.ml6 .letter',
-                translateY: ["1.1em", 0],
-                translateZ: 0,
-                duration: 750,
-                delay: (el, i) => 50 * i
-            }).add({
-            targets: '.ml6',
-            opacity: 0,
-            duration: 1000,
-            easing: "easeOutExpo",
-            delay: 1000
-        });
+        // // Wrap every letter in a span
+        //
+        // var textWrapper = document.querySelector('.ml11 .letters');
+        // textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+        //
+        // anime.timeline({loop: true})
+        //     .add({
+        //         targets: '.ml11 .line',
+        //         scaleY: [0,1],
+        //         opacity: [0.5,1],
+        //         easing: "easeOutExpo",
+        //         duration: 700
+        //     })
+        //     .add({
+        //         targets: '.ml11 .line',
+        //         translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
+        //         easing: "easeOutExpo",
+        //         duration: 700,
+        //         delay: 100
+        //     }).add({
+        //     targets: '.ml11 .letter',
+        //     opacity: [0,1],
+        //     easing: "easeOutExpo",
+        //     duration: 600,
+        //     offset: '-=775',
+        //     delay: (el, i) => 34 * (i+1)
+        // }).add({
+        //     targets: '.ml11',
+        //     opacity: 0,
+        //     duration: 1000,
+        //     easing: "easeOutExpo",
+        //     delay: 1000
+        // });
+        //
+        // var textWrapper2 = document.querySelector('.ml3');
+        // textWrapper2.innerHTML = textWrapper2.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+        //
+        // anime.timeline({loop: true})
+        //     .add({
+        //         targets: '.ml3 .letter',
+        //         opacity: [0,1],
+        //         easing: "easeInOutQuad",
+        //         duration: 600,
+        //         delay: (el, i) => 150 * (i+1)
+        //     }).add({
+        //     targets: '.ml3',
+        //     opacity: 0,
+        //     duration: 800,
+        //     easing: "easeOutExpo",
+        //     delay: 800
+        // });
+        //
+        // // Wrap every letter in a span
+        // var textWrapper3 = document.querySelector('.ml6 .letters');
+        // textWrapper3.innerHTML = textWrapper3.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+        //
+        // anime.timeline({loop: true})
+        //     .add({
+        //         targets: '.ml6 .letter',
+        //         translateY: ["1.1em", 0],
+        //         translateZ: 0,
+        //         duration: 750,
+        //         delay: (el, i) => 50 * i
+        //     }).add({
+        //     targets: '.ml6',
+        //     opacity: 0,
+        //     duration: 1000,
+        //     easing: "easeOutExpo",
+        //     delay: 1000
+        // });
 
         AOS.init()
 

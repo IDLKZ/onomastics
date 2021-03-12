@@ -54,22 +54,40 @@
                 <p> {{__("sidebar.articles")}} </p>
             </a>
         </li>
-        <li class="nav-item {{ Request::is('admin-dictionary*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{route('admin-dictionary.index')}}">
-                <i class="material-icons">format_color_text</i>
-                <p> {{__("sidebar.dictionaries")}} </p>
-            </a>
-        </li>
-        <li class="nav-item {{ Request::is('admin-author*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{route('admin-author.index')}}">
-                <i class="material-icons">supervised_user_circle</i>
-                <p> {{__("sidebar.authors")}} </p>
-            </a>
-        </li>
+{{--        <li class="nav-item {{ Request::is('admin-dictionary*') ? 'active' : '' }}">--}}
+{{--            <a class="nav-link" href="{{route('admin-dictionary.index')}}">--}}
+{{--                <i class="material-icons">format_color_text</i>--}}
+{{--                <p> {{__("sidebar.dictionaries")}} </p>--}}
+{{--            </a>--}}
+{{--        </li>--}}
+{{--        <li class="nav-item {{ Request::is('admin-author*') ? 'active' : '' }}">--}}
+{{--            <a class="nav-link" href="{{route('admin-author.index')}}">--}}
+{{--                <i class="material-icons">supervised_user_circle</i>--}}
+{{--                <p> {{__("sidebar.authors")}} </p>--}}
+{{--            </a>--}}
+{{--        </li>--}}
         <li class="nav-item {{ Request::is('admin-book*') ? 'active' : '' }}">
             <a class="nav-link" href="{{route('admin-book.index')}}">
                 <i class="material-icons">bookshelf</i>
                 <p> {{__("sidebar.books")}} </p>
+            </a>
+        </li>
+        <li class="nav-item {{ Request::is('admin-slider*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{route('admin-slider.index')}}">
+                <i class="material-icons">camera</i>
+                <p> Слайдеры </p>
+            </a>
+        </li>
+        <li class="nav-item {{ Request::is('admin-about*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{route('admin-about.index')}}">
+                <i class="material-icons">home</i>
+                <p> {{__("frontend.about")}} </p>
+            </a>
+        </li>
+        <li class="nav-item {{ Request::is('admin-advantage*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{route('admin-advantage.index')}}">
+                <i class="material-icons">home</i>
+                <p> {{__("frontend.offer_title")}} </p>
             </a>
         </li>
         @admin
@@ -89,6 +107,18 @@
             <a class="nav-link" href="{{route('admin-team.index')}}">
                 <i class="material-icons">supervised_user_circle</i>
                 <p> {{__("sidebar.team")}} </p>
+            </a>
+        </li>
+        <li class="nav-item {{ Request::is('admin-email*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{route('admin-email.index')}}">
+                <i class="material-icons">email</i>
+                <p> {{__("validation.attributes.email")}} </p>
+            </a>
+        </li>
+        <li class="nav-item {{ Request::is('admin-footer*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{route('admin-footer.index')}}">
+                <i class="material-icons">calendar_view_day</i>
+                <p> Footer </p>
             </a>
         </li>
         @endadmin

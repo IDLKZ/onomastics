@@ -69,7 +69,7 @@
                                 <h4>{{$item->created_at->diffForHumans()}}</h4>
                             </div>
                             <div class="stats">
-                                <h4 class="card-category"><i class="material-icons">user</i>{{$item->author->name}} </h4>
+                                <h4 class="card-category"><i class="material-icons">user</i>{{$item->author_id}} </h4>
                             </div>
                         </div>
                     </div>

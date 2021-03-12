@@ -106,27 +106,31 @@ class News extends Model
     }
 
     public static function getData(){
+        $language = Language::getLanguage();
         $data["news"] = [];
         $data["articles"] = [];
         $data["books"] = [];
         $data["partners"] = [];
+        $data["slider"] = Slider::where("language_id",$language)->get();
+        $data["about"] = About::where("language_id",$language)->first();
+        $data["advantage"] = Advantage::where("language_id",$language)->get();
         if(News::count() > 3){
-            $data["news"] = News::orderBy("created_at","DESC")->get()->take(3);
+            $data["news"] = News::orderBy("created_at","DESC")->where("language_id",$language)->get()->take(3);
         }
         else{
-            $data["news"] = News::all();
+            $data["news"] = News::where("language_id",$language)->get();
         }
         if(Article::count() > 4){
-            $data["articles"] = Article::orderBy("created_at","DESC")->get()->take(5);
+            $data["articles"] = Article::orderBy("created_at","DESC")->where("language_id",$language)->get()->take(5);
         }
         else{
-            $data["articles"] = Article::all();
+            $data["articles"] = Article::where("language_id",$language)->get();
         }
         if(Book::count()>4){
-            $data["books"] = Book::orderBy("created_at","DESC")->get()->take(5);
+            $data["books"] = Book::orderBy("created_at","DESC")->where("language_id",$language)->get()->take(5);
         }
         else{
-            $data["books"] = Book::all();
+            $data["books"] = Book::where("language_id",$language)->get();
         }
         $data["partners"] = Partner::all();
         return $data;

@@ -40,11 +40,11 @@
                         @csrf
                         <div class="form-group bmd-form-group">
                             <label for="title" class="bmd-label-floating">{{__("validation.attributes.title")}}</label>
-                            <input type="text" class="form-control" id="title" name="title">
+                            <input type="text" class="form-control" id="title" name="title" value="{{old("title")}}">
                         </div>
                         <div class="form-group bmd-form-group">
                             <label for="subtitle" class="bmd-label-floating">{{__("validation.attributes.subtitle")}}</label>
-                            <input type="text" class="form-control" id="title" name="subtitle">
+                            <input type="text" class="form-control" id="title" name="subtitle" value="{{old("subtitle")}}">
                         </div>
                         <div class="form-group bmd-form-group py-4">
                             <select class="form-control w-100" id="category" name="language_id">

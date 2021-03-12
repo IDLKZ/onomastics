@@ -35,14 +35,23 @@
                 <div class="row">
                     <div class="col-md-8 px-5 d-flex justify-content-center align-items-center">
 
-                        <div>
-                            <div class="py-2">
-                                <h3>{{__("frontend.about_us_title")}}</h3>
+                        @if($about)
+                            <div>
+                                <div class="py-2">
+                                    {!! $about->content !!}
+                                </div>
+
                             </div>
-                            <p class="fs-18">
-                                {{__("frontend.about_us_subtitle")}}
-                            </p>
-                        </div>
+                        @else
+                            <div>
+                                <div class="py-2">
+                                    <h3 class="main-title">{{__("frontend.about_us_title")}}</h3>
+                                </div>
+                                <p class="fs-18 main-subtitle">
+                                    {{__("frontend.about_us_subtitle")}}
+                                </p>
+                            </div>
+                        @endif
 
                     </div>
                     <div class="col-md-4">

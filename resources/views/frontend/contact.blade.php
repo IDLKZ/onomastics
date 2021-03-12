@@ -1,4 +1,7 @@
 @extends("layouts.frontend.layout")
+@push("styles")
+    @toastr_css
+@endpush
 @section("content")
     {{--BreadCrumbs--}}
     <section style="background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5) ), url('/img/bg3.jpg');">
@@ -34,10 +37,18 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 px-5">
-                        <form method="post"  id="js-form" >
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <i class="material-icons">close</i>
+                                </button>
+                                @foreach ($errors->all() as $error)
+                                    <span>{{ $error }}</span>
+                                @endforeach
+                            </div>
+                        @endif
+                        <form method="post" action="{{route("send-message")}}"  id="js-form" >
                             @csrf
-
-
                                     <div class="form-group px-2">
                                         <label for="exampleTitle" class="bmd-label-floating">{{__("validation.attributes.name")}}</label>
                                         <input type="text" name="name" class="form-control" id="exampleTitle">
@@ -48,20 +59,14 @@
                                         <label for="exampleTitle" class="bmd-label-floating">{{__("validation.attributes.email")}}</label>
                                         <input type="email" name="email" class="form-control" id="exampleTitle">
                                     </div>
-
-
                                     <div class="form-group px-2">
                                         <label for="exampleTitle" class="bmd-label-floating">{{__("validation.attributes.phone")}}</label>
                                         <input type="text" name="phone" class="form-control" id="phone">
                                     </div>
-
                                     <div class="form-group px-2">
                                         <textarea name="message" rows="5" style="width: 100%">
-
                                         </textarea>
                                     </div>
-
-
 
                                     <div class="text-right">
                                         <button type="submit" class="btn btn-primary ml-auto">{{__("frontend.send")}}</button>
@@ -92,7 +97,8 @@
 @endsection
 @push("scripts")
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
+    @toastr_js
+    @toastr_render
 @endpush
 
 

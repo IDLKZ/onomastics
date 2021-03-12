@@ -31,10 +31,7 @@ class Author extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function books()
-    {
-        return $this->hasMany('App\Book');
-    }
+
 
     public static function createData($request){
         $model = new self();

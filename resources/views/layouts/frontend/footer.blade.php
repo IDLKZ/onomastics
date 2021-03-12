@@ -5,20 +5,40 @@
         <div class="row">
             <div class="col-md-4 text-md-left text-center">
                 <a class="navbar-brand text-uppercase font-weight-bold text-white" href="/">ONOMASTICS.KZ</a>
+                @if($footer)
+                <p class="text-white">
+                    {{$footer->title}}
+                </p>
+                @else
                 <p class="text-white">
                 {{__("frontend.onomonimcs")}}
                 </p>
+                @endif
             </div>
             <div class="col-md-4 text-white text-center">
                 <p class="font-weight-bold">{{__("frontend.useful_links")}}</p>
                 <ul class="list-unstyled ">
-                    <li><a class="fs-16 text-white" href="#">{{__("frontend.main")}}</a></li>
-                    <li><a class="fs-16 text-white" href="#">{{__("frontend.about")}}</a></li>
-                    <li><a class="fs-16 text-white" href="#">{{__("frontend.news")}}</a></li>
-                    <li><a class="fs-16 text-white" href="#">{{__("frontend.articles")}}</a></li>
-                    <li><a class="fs-16 text-white" href="#">{{__("frontend.dictionary")}}</a></li>
-                    <li><a class="fs-16 text-white" href="#">{{__("frontend.authors")}}</a></li>
-                    <li><a class="fs-16 text-white" href="#">{{__("frontend.contact")}}</a></li>
+                    <li class="nav-item ml-2">
+                        <a class="{{ request()->routeIs('main') ? 'nav-link text-success' : 'nav-link' }} fs-14" href="/">{{__("frontend.main")}}</a>
+                    </li>
+                    <li class="nav-item ml-2 text-white">
+                        <a  class="{{ request()->routeIs('about') ? 'nav-link text-success' : 'nav-link' }} fs-14" href="{{route("about")}}">{{__("frontend.about")}}</a>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a  class="{{ request()->routeIs('news') ? 'nav-link text-success' : 'nav-link' }} fs-14" href="{{route("news")}}">{{__("frontend.news")}}</a>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a  class="{{ request()->routeIs('article') ? 'nav-link text-success' : 'nav-link' }} fs-14" href="{{route("article")}}">{{__("frontend.articles")}}</a>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a class="{{ request()->routeIs('book') ? 'nav-link text-success' : 'nav-link' }} fs-14" href={{route("book")}}>{{__("frontend.books")}}</a>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a class="{{ request()->routeIs('gallery') ? 'nav-link text-success' : 'nav-link' }} fs-14" href="{{route("gallery")}}">{{__("frontend.galleries")}}</a>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a class="{{ request()->routeIs('contact') ? 'nav-link text-success' : 'nav-link' }} fs-14" href="{{route("contact")}}">{{__("frontend.contact")}}</a>
+                    </li>
                 </ul>
             </div>
             <div class="col-md-4 text-md-left text-center">

@@ -15,7 +15,7 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->bigIncrements("id");
-            $table->foreignId("author_id")->references("id")->on("authors")->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string("author_id");
             $table->foreignId("language_id")->references("id")->on("languages")->cascadeOnUpdate()->cascadeOnDelete();
             $table->string("alias");
             $table->string("title");

@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card px-4 py-4">
-                <h2 class="card-title">{{$book->author->name}} - {{$book->title}}</h2>
+                <h2 class="card-title">{{$book->author_id}} - {{$book->title}}</h2>
                 <p>{{\Carbon\Carbon::parse($book->created_at)->format("d/m/Y H:i:s")}}</p>
 
                 <div class="row">

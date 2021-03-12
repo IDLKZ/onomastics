@@ -41,8 +41,8 @@
                                 <div class="ribbon-wrapper my-2">
                                     <div class="glow">&nbsp;</div>
                                     <div class="ribbon-front">
-                                        <a href="{{route("authorBook",$item->author_id)}}" class="text-white">
-                                            {{$item->author->name}}
+                                        <a class="text-white">
+                                            {{$item->author_id}}
                                         </a>
                                     </div>
                                     <div class="ribbon-edge-topleft"></div>

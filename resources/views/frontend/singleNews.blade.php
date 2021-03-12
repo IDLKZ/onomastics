@@ -43,7 +43,7 @@
                         <i class="fas fa-clock"></i>  {{\Carbon\Carbon::parse($news->created_at)->format("d/m/Y H:i:s")}}
                     </span>
                     <div>
-                        <img src="{{asset($news->img)}}">
+                        <img class="w-100" src="{{asset($news->img)}}">
                     </div>
                     <div class="card-blog px-2 py-4">
                         {!! $news->content !!}

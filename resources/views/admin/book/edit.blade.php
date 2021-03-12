@@ -56,18 +56,9 @@
                                 @endif
                             </select>
                         </div>
-                        <div class="form-group bmd-form-group py-4">
-                            <select class="form-control w-100" id="category" name="author_id">
-                                @if($authors->isNotEmpty())
-                                    @foreach($authors as $author)
-                                        @if($author->id == $book->author_id)
-                                            <option selected value="{{$author->id}}">{{$author->name}}</option>
-                                        @else
-                                        <option value="{{$author->id}}">{{$author->name}}</option>
-                                        @endif
-                                    @endforeach
-                                @endif
-                            </select>
+                        <div class="form-group bmd-form-group">
+                            <label for="title" class="bmd-label-floating">{{__("validation.attributes.author_id")}}</label>
+                            <input type="text" class="form-control" id="title" name="author_id" value="{{$book->author_id}}">
                         </div>
 
 
@@ -94,15 +85,11 @@
                         <div class="form-group bmd-form-group">
                             <p>{{__("validation.attributes.authors")}}</p>
                             <select class="authors w-100" name="authors[]" multiple>
-                                @if($authors->isNotEmpty())
-                                    @foreach($authors as $author)
-                                        @if(in_array($author->id,$book->authors))
-                                        <option selected="selected" value="{{$author->id}}">{{$author->name}}</option>
-                                        @else
-                                        <option value="{{$author->id}}">{{$author->name}}</option>
-                                        @endif
+                                @if($book->authors)
+                                    @foreach($book->authors as $author)
+                                        <option selected="selected" value="{{$author}}">{{$author}}</option>
                                     @endforeach
-                                @endif
+                                    @endif
                             </select>
                         </div>
                         <div class="form-group bmd-form-group">
