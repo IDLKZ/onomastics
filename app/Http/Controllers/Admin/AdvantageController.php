@@ -19,7 +19,7 @@ class AdvantageController extends Controller
     public function index()
     {
         $advantages = Advantage::with("language")->paginate(15);
-        return view("admin.Advantage.index",compact("advantages"));
+        return view("admin.advantage.index",compact("advantages"));
     }
 
     /**
