@@ -121,6 +121,12 @@
                 <p> Footer </p>
             </a>
         </li>
+        <li class="nav-item {{ Request::is('admin-social*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{route('admin-social.index')}}">
+                <i class="material-icons">camera</i>
+                <p> Соц. сеть </p>
+            </a>
+        </li>
         @endadmin
 
 

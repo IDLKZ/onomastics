@@ -57,7 +57,7 @@ return[
 // Frontend
 "onomonimcs" => "Onomastics database - News, articles, dictionaries, books-Support the development of the Kazakh language with Us",
 "useful_links" => "Links",
-"social"=>"We are in the social network. ad networks",
+"social"=>"We are in the social network",
 
 
 //About Us
@@ -72,6 +72,7 @@ return[
 "contact_title" => "Contacts",
 "contact_subtitle" =>"Do you still have questions? Write to us we will be happy to respond",
 "send" => " Send",
-"message"=>"Text"
+"message"=>"Text",
+    "nothing"=>"Unfortunately, there is nothing here"
 
 ];

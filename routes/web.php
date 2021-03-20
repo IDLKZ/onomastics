@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\AdvantageController as AdminAdvantageController;
 use App\Http\Controllers\Admin\EmailController as AdminEmailController;
 use App\Http\Controllers\Admin\FooterController as AdminFooterController;
 use \App\Http\Controllers\FrontendController;
+use App\Http\Controllers\Admin\SocialController as AdminSocialController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,6 +88,7 @@ Route::group(
            Route::resource("admin-advantage",AdminAdvantageController::class);
            Route::resource("admin-email",AdminEmailController::class);
            Route::resource("admin-footer",AdminFooterController::class);
+           Route::resource("admin-social",AdminSocialController::class);
         });
 
 

@@ -11,7 +11,7 @@
                         </h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb bg-transparent">
-                                <li class="breadcrumb-item fs-18"><a class="text-white" href="#">{{__("frontend.main")}}</a></li>
+                                <li class="breadcrumb-item fs-18"><a class="text-white" href="/">{{__("frontend.main")}}</a></li>
                                 <li class="breadcrumb-item fs-18 active" aria-current="page">{{__("frontend.news")}}</li>
                             </ol>
                         </nav>
@@ -63,6 +63,22 @@
                 </div>
             </div>
         </section>
+
+
+    @else
+        <div class="container" style="min-height: 250px">
+            <div class="row">
+                <div class="col-md-12 p-5">
+
+                    <h1 class="text-danger">
+                        {{__("frontend.nothing")}}
+                    </h1>
+                </div>
+
+            </div>
+
+        </div>
+
     @endif
 
 

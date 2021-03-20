@@ -21,4 +21,6 @@ $(document).ready(function(){
         $(".my-navbar").removeClass("navbar-dark").addClass("navbar-light");
     }
 
+
+
 });

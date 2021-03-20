@@ -11,7 +11,7 @@
                         </h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb bg-transparent">
-                                <li class="breadcrumb-item fs-18"><a class="text-white" href="#">{{__("frontend.main")}}</a></li>
+                                <li class="breadcrumb-item fs-18"><a class="text-white" href="/">{{__("frontend.main")}}</a></li>
                                 <li class="breadcrumb-item fs-18"><a class="text-white" href="{{route("book")}}">{{__("frontend.books")}}</a></li>
                                 <li class="breadcrumb-item fs-18 active" aria-current="page">{{$book->title}}</li>
                             </ol>

@@ -59,6 +59,20 @@
                 </div>
             </div>
         </section>
+
+    @else
+        <div class="container" style="min-height: 250px">
+            <div class="row">
+                <div class="col-md-12 p-5">
+
+                    <h1 class="text-danger">
+                        {{__("frontend.nothing")}}
+                    </h1>
+                </div>
+
+            </div>
+
+        </div>
     @endif
 
 

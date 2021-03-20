@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Footer;
 use App\Language;
+use App\Social;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -39,6 +40,10 @@ class AppServiceProvider extends ServiceProvider
         \view()->composer("layouts.frontend.footer",function ($view){
             $footer = Footer::where("language_id",Language::getLanguage())->first();
             $view->with("footer",$footer);
+        });
+        \view()->composer("layouts.frontend.footer",function ($view){
+            $socials = Social::all();
+            $view->with("socials",$socials);
         });
         Paginator::useBootstrap();
     }

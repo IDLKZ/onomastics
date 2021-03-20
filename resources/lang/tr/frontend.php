@@ -57,7 +57,7 @@ return[
 //Frontend
 "onomonimcs"=> " Onomastics veritabanı - Haberler, makaleler, sözlükler, kitaplar-bizimle Kazak dilinin gelişimini destekleyin",
 "useful_links"=> " bağlantılar",
-"social"=> " biz sosyal konum. ağlardan",
+"social"=> " biz sosyal konum ağlardan",
 
 
 //About Us
@@ -72,6 +72,7 @@ return[
 "contact_title" => " kişiler",
 "contact_subtitle" => " sorularınız mı var? Bize e-posta biz memnuniyetle cevap verecektir",
 "send" => " Gönder",
-"message" => " metin"
+"message" => " metin",
+    "nothing"=>"Maalesef burada hiçbir şey yok"
 
 ];
