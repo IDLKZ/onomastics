@@ -24,7 +24,7 @@
                       </span>
                             </h1>
                             @if($loop->iteration == 1)
-                            <div class="px-md-5 px-sm-2 py-2">
+                            <div class="px-md-5 px-sm-2 py-5" style="z-index: 1000">
                                 @if($errors->any())
                                     @foreach($errors->all() as $error)
                                         <div class="alert alert-rose">
