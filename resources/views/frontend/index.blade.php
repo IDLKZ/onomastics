@@ -40,21 +40,28 @@
                                 @endif
                                 <form action="{{route("search")}}">
                                     @csrf
-                                    <div class="input-group" >
+                                    <div>
+                                            <div class="col-md-8 py-2 offset-md-2">
+                                                <select class="form-control" id="category" name="category">
+                                                    <option value="article">{{__("frontend.articles")}}</option>
+                                                    <option value="news">{{__("frontend.news")}}</option>
+                                                    <option value="book">{{__("frontend.books")}}</option>
+                                                </select>
+                                            </div>
 
-                                            <select class="form-control" id="category" name="category">
-                                                <option value="article">{{__("frontend.articles")}}</option>
-                                                <option value="news">{{__("frontend.news")}}</option>
-                                                <option value="book">{{__("frontend.books")}}</option>
-                                            </select>
+                                            <div class="col-md-8 py-2 offset-md-2">
+                                                <div class="form-outline">
+                                                    <input type="search" placeholder="{{__("frontend.search")}}" id="form1" class="form-control" name="search" />
+                                                </div>
+                                            </div>
 
-                                        <div class="form-outline" style="width: 40%">
-                                            <input type="search" placeholder="{{__("frontend.search")}}" id="form1" class="form-control" name="search" />
-                                        </div>
+                                            <div class="col-md-8 py-2 offset-md-2">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fas fa-search"></i>
+                                                    Искать!
+                                                 </button>
+                                            </div>
 
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="fas fa-search"></i>
-                                            </button>
 
 
                                     </div>
