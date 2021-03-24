@@ -40,22 +40,22 @@
                                 @endif
                                 <form action="{{route("search")}}">
                                     @csrf
-                                    <div class="input-group" style="text-align: center; display: flex; justify-content: center">
-                                        <div class="form-outline" style="width: 20%">
+                                    <div class="input-group" >
+
                                             <select class="form-control" id="category" name="category">
                                                 <option value="article">{{__("frontend.articles")}}</option>
                                                 <option value="news">{{__("frontend.news")}}</option>
                                                 <option value="book">{{__("frontend.books")}}</option>
                                             </select>
-                                        </div>
+
                                         <div class="form-outline" style="width: 40%">
                                             <input type="search" placeholder="{{__("frontend.search")}}" id="form1" class="form-control" name="search" />
                                         </div>
-                                        <div>
+
                                             <button type="submit" class="btn btn-primary">
                                                 <i class="fas fa-search"></i>
                                             </button>
-                                        </div>
+
 
                                     </div>
                                 </form>
