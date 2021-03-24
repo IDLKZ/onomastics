@@ -23,52 +23,7 @@
                         <span class="letters">{{$slider->title}}</span>
                       </span>
                             </h1>
-                            @if($loop->iteration == 1)
-                            <div class="px-md-5 px-sm-2 py-5" style="z-index: 1000">
-                                @if($errors->any())
-                                    @foreach($errors->all() as $error)
-                                        <div class="alert alert-rose">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                            <span>
-                                    {{$error}}
-                                </span>
-                                        </div>
 
-                                    @endforeach
-                                @endif
-                                <form action="{{route("search")}}">
-                                    @csrf
-                                    <div>
-                                            <div class="col-md-8 py-2 offset-md-2">
-                                                <select class="form-control" id="category" name="category">
-                                                    <option value="article">{{__("frontend.articles")}}</option>
-                                                    <option value="news">{{__("frontend.news")}}</option>
-                                                    <option value="book">{{__("frontend.books")}}</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="col-md-8 py-2 offset-md-2">
-                                                <div class="form-outline">
-                                                    <input type="search" placeholder="{{__("frontend.search")}}" id="form1" class="form-control" name="search" />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-8 py-2 offset-md-2">
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="fas fa-search"></i>
-                                                    Искать!
-                                                 </button>
-                                            </div>
-
-
-
-                                    </div>
-                                </form>
-
-                            </div>
-                            @endif
                         </div>
 
                     </div>
@@ -163,7 +118,48 @@
     </div>
 </section>
 {{--    End of Carousel  --}}
+<section class="py-4 my-4" >
+    <div class="container about-us" >
+        <div class="row py-2">
+                <div class="col-md-12 text-center my-2 py-4">
+                    <h1 class="main-title font-weight-bold text-white">{{__("frontend.search")}}</h1>
+                </div>
 
+            <form action="{{route("search")}}" style="width: 100%">
+                @csrf
+
+                        <div class="col-md-8 offset-md-2 py-2 text-center">
+                            <select class="form-control my-2" id="category" name="category">
+                                <option value="article">{{__("frontend.articles")}}</option>
+                                <option value="news">{{__("frontend.news")}}</option>
+                                <option value="book">{{__("frontend.books")}}</option>
+                            </select>
+
+
+
+                        <input type="search" placeholder="{{__("frontend.search")}}" id="form1" class="form-control my-2" name="search" />
+
+
+                        <button type="submit" class="btn btn-primary my-2">
+                            <i class="fas fa-search"></i>
+                            {{__("frontend.search")}}
+                        </button>
+                        </div>
+
+
+
+            </form>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
 {{--Offer--}}
 <section>
     <div class="container">
