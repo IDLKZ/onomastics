@@ -42,17 +42,20 @@
                 </ul>
             </div>
             <div class="col-md-4 text-md-left text-center">
-                <p class="font-weight-bold text-white fs-18">{{__("frontend.social")}}</p>
                 @if($socials->isNotEmpty())
+                    <p class="font-weight-bold text-white fs-18">{{__("frontend.social")}}</p>
                     @foreach($socials as $social)
                     <a href="{{$social->link}}" class="text-white"><i class="{{$social->icon}} footer-icon fs-18"></i> </a>
                     @endforeach
                 @else
-                <a href="" class="text-white"><i class="fab fa-instagram footer-icon fs-18"></i> </a>
-                <a href="" class="text-white"><i class="fab fa-facebook-square footer-icon fs-18"></i> </a>
-                <a href="" class="text-white"><i class="fab fa-twitter-square footer-icon fs-18"></i> </a>
-                <a href="" class="text-white"><i class="fab fa-youtube-square footer-icon fs-18"></i> </a>
                 @endif
+                    <p class="font-weight-bold text-white fs-18">Email:</p>
+                    @if($emails->isNotEmpty())
+                        @foreach($emails as $email)
+                            <p class="text-white"><i class="fas fa-envelope"></i> {{$email->email}}</p>
+                        @endforeach
+                    @endif
+
             </div>
 
 

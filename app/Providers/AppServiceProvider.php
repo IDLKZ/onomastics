@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App;
 use App\Footer;
 use App\Language;
 use App\Social;
@@ -44,6 +45,10 @@ class AppServiceProvider extends ServiceProvider
         \view()->composer("layouts.frontend.footer",function ($view){
             $socials = Social::all();
             $view->with("socials",$socials);
+        });
+        \view()->composer("layouts.frontend.footer",function ($view){
+           $emails = App\Email::all();
+            $view->with("emails",$emails);
         });
         Paginator::useBootstrap();
     }

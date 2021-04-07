@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kz">
 <head>
     <title>Ономастика</title>
     <meta charset="UTF-8">
