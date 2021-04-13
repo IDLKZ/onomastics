@@ -31,7 +31,7 @@ class AdvantageController extends Controller
     {
         $validator = JsValidator::make(["language_id"=>"required|exists:languages,id","title"=>"required|max:255","img"=>"required|file|image|max:10240"]);
         $languages = Language::all();
-        return view("admin.Advantage.create",compact("languages","validator"));
+        return view("admin.advantage.create",compact("languages","validator"));
     }
 
     /**

@@ -16,7 +16,7 @@
                 @endif
             </div>
             <div class="col-md-4 text-white text-center">
-                <p class="font-weight-bold">{{__("frontend.useful_links")}}</p>
+                <p class="font-weight-bold ">{{__("frontend.useful_links")}}</p>
                 <ul class="list-unstyled ">
                     <li class="nav-item ml-2">
                         <a class="{{ request()->routeIs('main') ? 'nav-link text-success' : 'nav-link' }} fs-14" href="/">{{__("frontend.main")}}</a>
@@ -41,7 +41,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-4 text-md-left text-center">
+            <div class="col-md-4 text-md-left text-center ">
                 @if($socials->isNotEmpty())
                     <p class="font-weight-bold text-white fs-18">{{__("frontend.social")}}</p>
                     @foreach($socials as $social)

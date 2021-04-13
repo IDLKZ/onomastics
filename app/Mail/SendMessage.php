@@ -32,6 +32,6 @@ class SendMessage extends Mailable
     {
         return $this->from('library@weplay.kz')
             ->subject('Заявка с сайта')
-            ->markdown("mail.invite");
+            ->markdown("mail.invite",);
     }
 }
