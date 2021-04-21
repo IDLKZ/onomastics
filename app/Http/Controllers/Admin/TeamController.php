@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\File;
 use App\Team;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeamController extends Controller
 {
@@ -89,6 +92,15 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        abort(404);
+        $team = Team::find($id);
+        if($team){
+                File::deleteFile($team->img);
+                $team->delete();
+                toastr()->success(__("messages.deleted"));
+        }
+        else{
+            toastr()->error("404");
+        }
+        return redirect()->route("admin-team.index");
     }
 }
