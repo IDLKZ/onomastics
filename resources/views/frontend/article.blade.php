@@ -38,7 +38,7 @@
                     @foreach($articles as $item)
                         <div class="col-md-4 my-4">
                             <div class="card card-news">
-                                <img class="card-img-top" src="{{$item->thumbnail}}" alt="Card image cap">
+                                <img class="card-img-top" src="{{$item->img}}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title border-left border-danger pl-2">
                                         {{strlen($item->title) > 30 ? \Illuminate\Support\Str::limit($item->title, 25, $end='...') : $item->title}}
